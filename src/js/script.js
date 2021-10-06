@@ -103,7 +103,7 @@
     }
     initOrderForm() {
       const thisProduct = this;
-      console.log(initOrderForm)
+      //console.log(thisProduct.initOrderForm)
       thisProduct.form.addEventListener('submit', function(event){
         event.preventDefault();
         thisProduct.processOrder();
@@ -120,13 +120,36 @@
     }
     processOrder() {
       const thisProduct = this;
-      console.log(processOrder)
-    }
+
+      // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
+      const formData = utils.serializeFormToObject(thisProduct.form);
+      console.log('formData', formData);
+
+      // set price to default price
+      let price = thisProduct.data.price;
+
+      // for every category (param)...
+      for(let paramId in thisProduct.data.params) {
+        // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
+        const param = thisProduct.data.params[paramId];
+        console.log(paramId, param);
+
+        // for every option in this category
+        for(let optionId in param.options) {
+          // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
+          const option = param.options[optionId];
+          console.log(optionId, option);
+        }
+      }
+
+      // update calculated price in the HTML
+      thisProduct.priceElem.innerHTML = price;
   }
+
   const app = {
     initMenu: function(){
       const thisApp = this;
-      console.log('thisApp.data:', thisApp.data);
+      //console.log('thisApp.data:', thisApp.data);
       for(let productData in thisApp.data.products){
         new Product(productData, thisApp.data.products[productData]);
       }
