@@ -145,7 +145,7 @@
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
   }
-
+}
   const app = {
     initMenu: function(){
       const thisApp = this;
