@@ -119,7 +119,6 @@
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
       thisProduct.amountWidgetElem = thisProduct.element.querySelector(select.menuProduct.amountWidget);
-
     }
     initAccordion(){
       const thisProduct = this;
@@ -166,7 +165,6 @@
 
       // set price to default price
       let price = thisProduct.data.price;
-
       // for every category (param)...
       for(let paramId in thisProduct.data.params) {
         // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
@@ -223,7 +221,7 @@
     }
     addToCart(){
       const thisProduct = this;
-      app.cart.add(thisProduct.prepareCartProduct);
+      app.cart.add(thisProduct.prepareCartProduct());
     }
     prepareCartProduct(){
       const thisProduct = this;
@@ -232,7 +230,7 @@
       productSummary.name = thisProduct.data.name;
       productSummary.amount = thisProduct.amountWidget.value;
       productSummary.priceSingle = thisProduct.priceSingle;
-      productSummary.price=thisProduct.amout * thisProduct.priceSingle;
+      productSummary.price = productSummary.amount * productSummary.priceSingle;
       productSummary.parmas = thisProduct.prepareCartProductParams();
       return productSummary;
 
@@ -259,8 +257,8 @@
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
 
           if(optionSelected) {
-            if(formData[paramId].includes(optionId)){
-              params[paramId].options[optionId].add(option.label);
+            if(optionSelected.includes(optionId)){
+              params[paramId].options[optionId] = option.label;
             }
           }
         }
@@ -336,6 +334,7 @@
       thisCart.dom = {};
       thisCart.dom.wrapper = element;
       thisCart.dom.toggleTrigger=thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
+      thisCart.dom.productList=thisCart.dom.wrapper.querySelector(select.cart.productList);
     }
     initActions(){
       const thisCart = this;
@@ -344,7 +343,14 @@
       });
     }
     add(menuProduct){
-      //const thisCart = this;
+      const thisCart = this;
+      /* generate HTML based on template */
+      const generatedHTML = templates.cartProduct(menuProduct);
+      /* create DOM element */
+      const generatedDom = utils.createDOMFromHTML(generatedHTML);
+      /* add element to thisCart.dom.productList*/
+      thisCart.dom.productList.appendChild(generatedDom);
+
       console.log('adding product',menuProduct);
     }
   }
