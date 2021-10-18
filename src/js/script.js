@@ -257,7 +257,7 @@
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
 
           if(optionSelected) {
-            if(optionSelected.includes(optionId)){
+            if(formData[paramId].includes(optionId)){
               params[paramId].options[optionId] = option.label;
             }
           }
@@ -350,8 +350,9 @@
       const generatedDom = utils.createDOMFromHTML(generatedHTML);
       /* add element to thisCart.dom.productList*/
       thisCart.dom.productList.appendChild(generatedDom);
-
-      console.log('adding product',menuProduct);
+      thisCart.products.push(menuProduct);
+      console.log('thisCart.products',thisCart.products)
+      //console.log('adding product',menuProduct);
     }
   }
   const app = {
