@@ -331,8 +331,13 @@
       const thisCart = this;
       thisCart.dom = {};
       thisCart.dom.wrapper = element;
-      thisCart.dom.toggleTrigger=thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
-      thisCart.dom.productList=thisCart.dom.wrapper.querySelector(select.cart.productList);
+      thisCart.dom.toggleTrigger= thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
+      thisCart.dom.productList= thisCart.dom.wrapper.querySelector(select.cart.productList);
+      thisCart.dom.deliveryFee = thisCart.dom.wrapper.querySelector(select.cart.deliveryFee);
+      thisCart.dom.subtotalPrice = thisCart.dom.wrapper.querySelector(select.cart.subtotalPrice);
+      thisCart.dom.totalPrice = thisCart.dom.wrapper.querySelectorAll(select.cart.totalPrice);
+      thisCart.dom.totalNumber = thisCart.dom.wrapper.querySelector(select.cart.totalNumber);
+
     }
     initActions(){
       const thisCart = this;
@@ -349,9 +354,29 @@
       /* add element to thisCart.dom.productList*/
       thisCart.dom.productList.appendChild(generatedDom);
       thisCart.products.push(new CartProduct(menuProduct, generatedDom));
-      //console.log('thisCart.products',thisCart.products);
-      //console.log('adding product',menuProduct);
+      thisCart.update();
     }
+    update(){
+      const thisCart = this;
+      const deliveryFee = settings.cart.defaultDeliveryFee;
+      let totalNumber = 0;
+      let subtotalPrice = 0;
+
+      for(const product of thisCart.products){
+        totalNumber = totalNumber + product.amount;
+        subtotalPrice = subtotalPrice + product.price;
+      }
+
+      if (totalNumber == 0){totalPrice == 0;}
+      thisCart.totalPrice = subtotalPrice + deliveryFee;
+      thisCart.dom.totalNumber.innerHTML = totalNumber;
+      thisCart.dom.subtotalPrice.innerHTML = subtotalPrice;
+      thisCart.dom.deliveryFee.innerHTML = deliveryFee;
+      for (const totalPrice of thisCart.dom.totalPrice) {
+        totalPrice.innerHTML = thisCart.totalPrice;
+      }
+    }
+
   }
   class CartProduct{
     constructor(menuProduct, element){
@@ -363,7 +388,7 @@
       thisCartProduct.price = menuProduct.price;
       thisCartProduct.params = menuProduct.params;
       thisCartProduct.getElements(element);
-      console.log(thisCartProduct);
+      thisCartProduct.initAmountWidget();
     }
     getElements(element){
       const thisCartProduct = this;
@@ -373,6 +398,16 @@
       thisCartProduct.dom.price = element.querySelector(select.cartProduct.price);
       thisCartProduct.dom.edit = element.querySelector(select.cartProduct.edit);
       thisCartProduct.dom.remove = element.querySelector(select.cartProduct.remove);
+
+    }
+    initAmountWidget(){
+      const thisCartProduct = this;
+      thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
+      thisCartProduct.dom.amountWidget.addEventListener('updated',function(){
+        thisCartProduct.amount = thisCartProduct.amountWidget.value;
+        thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amount;
+        thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
+      });
     }
   }
   const app = {
