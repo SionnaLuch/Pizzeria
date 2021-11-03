@@ -1,7 +1,7 @@
 import {settings, select} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
-export const app = {
+const app = {
   initMenu: function(){
     const thisApp = this;
     //console.log('thisApp.data:', thisApp.data);
@@ -52,3 +52,4 @@ export const app = {
 
 };
 app.init();
+export default app;
