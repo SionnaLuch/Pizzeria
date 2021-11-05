@@ -1,4 +1,5 @@
 /* global Handlebars, dataSource */
+//import app from './app';
 
 export const utils = {}; // eslint-disable-line no-unused-vars
 
