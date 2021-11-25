@@ -1,0 +1,60 @@
+.home-widget{
+  transform: opacity 500ms;
+  font-family: $font-header ;
+
+  &.loading{
+    opacity: 0.25;
+  }
+}
+
+.home-wrapper {
+  margin: 42px auto;
+  padding: 72px 48px;
+  background: $color-light;
+  border-bottom: 1px solid(black,70%);
+  border-radius: 4px;
+}
+
+.start-boxes {
+  display: flex;
+}
+
+.img-1 , .img-2 {
+  position: relative;
+  width: 299px;
+  height: 119px;
+  margin-right: 5px;
+  z-index: 5;
+  object-fit: cover;
+}
+
+.box-text {
+  position: absolute;
+  z-index: 10;
+
+  a {
+    text-decoration: none;
+  }
+  
+  h2 {
+    font-size: 26px;
+    color: $color-light;
+    text-align: center;
+  }
+    
+  p {
+    font-size: 15px;
+    font-family: sans-serif;
+    opacity: 0;
+    color: $color-light;
+  }
+
+  :hover {
+    margin-top: -20px;
+    transition: 1s ease;
+        
+    p {
+      opacity: 1;
+    }
+  }
+}
