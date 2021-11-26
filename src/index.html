@@ -7,7 +7,7 @@
   <title>Pizzeria</title>
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="vendor/range-slider.min.css">
-  <!--<link rel="stylesheet" href="/path/to/flickity.css" media="screen">-->
+  <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -78,10 +78,10 @@
 
   <script id="template-home-widget" type="text/x-handlebars-template">
      <div class="home-widget">
-        <div class="start-boxes">
+        <div class="start">
           <div class="order-online">
-            <div class="box-text">
-              <a href="#order">
+            <div class="text">
+              <a  href="#order">
                 <h2>ORDER ONLINE</h2>
                 <p class="hover-text">Delicious food delivered to your door</p>
               </a>
@@ -89,12 +89,12 @@
             <img class="img-1"src="images/assets/pizza-1.jpg">
           </div>
           <div class="book-table">
-            <div class="box-text">
+            <div class="text">
               <a href="#booking">
                 <h2>BOOK A TABLE</h2>  
               </a>
             </div>
-            <img class="img-2" src="images/assets/pizza-2.jpg">
+            <img class="img-1" src="images/assets/pizza-2.jpg">
           </div>
         </div>
         <div class="open-hours">
@@ -104,41 +104,91 @@
         </div>
       </div>
       
-      <div class="carousel-main">
+      <div class="carousel">
         <div class="carousel-cell">
-          <div class="comment">
-            <div class="comment-img"></div>
-              <img class="carousel-img" src="images/assets/pizza-3.jpg">              </div>
-            <div class="comment-text">
-              <h3>AMAZING SERVICE</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec mauris ullamcorper, aliquet velit sed, fringilla nibh. Mauris sagittis malesuada ultrices. Morbi vestibulum, quam quis rutrum dignissim.</p>
-              <p>-Margaret Osborne</p>
-            </div>
+          <img class="carousel-img" src="images/assets/pizza-3.jpg">
+          <div class="comment-text">
+            <h3>AMAZING SERVICE</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec mauris ullamcorper, aliquet velit sed, fringilla nibh. Mauris sagittis malesuada ultrices. Morbi vestibulum, quam quis rutrum dignissim.</p>
+            <p>-Margaret Osborne</p>
+          </div>
         </div>
         <div class="carousel-cell">
-          <div class="comment">
-            <div class="coment-img"></div>
-              <img class="carousel-img" src="images/assets/pizza-3.jpg">
-            </div>
-            <div class="comment-text">
-              <h3>AMAZING SERVICE</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec mauris ullamcorper, aliquet velit sed, fringilla nibh. Mauris sagittis malesuada ultrices. Morbi vestibulum, quam quis rutrum dignissim.</p>
-              <p>-Margaret Osborne</p>
-            </div>
+          <img class="carousel-img" src="images/assets/pizza-3.jpg">
+          <div class="comment-text">
+            <h3>AMAZING SERVICE</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec mauris ullamcorper, aliquet velit sed, fringilla nibh. Mauris sagittis malesuada ultrices. Morbi vestibulum, quam quis rutrum dignissim.</p>
+            <p>-Margaret Osborne</p>
+          </div>
         </div>
         <div class="carousel-cell">
-          <div class="comment">
-            <div class="coment-img"></div>
-              <img class="carousel-img" src="images/assets/pizza-3.jpg">
-            </div>
-            <div class="comment-text">
-              <h3>AMAZING SERVICE</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec mauris ullamcorper, aliquet velit sed, fringilla nibh. Mauris sagittis malesuada ultrices. Morbi vestibulum, quam quis rutrum dignissim.</p>
-              <p>-Margaret Osborne</p>
+          <img class="carousel-img" src="images/assets/pizza-3.jpg">
+          <div class="comment-text">
+            <h3>AMAZING SERVICE</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec mauris ullamcorper, aliquet velit sed, fringilla nibh. Mauris sagittis malesuada ultrices. Morbi vestibulum, quam quis rutrum dignissim.</p>
+            <p>-Margaret Osborne</p>
           </div>
         </div>
       </div> 
+
+      <div class="gallery">
+        <div class="gallery-flex">
+
+          <div class="float">
+            <div class="icons">
+               <i class="fas fa-heart"></i>
+               <i class="fas fa-share-alt"></i>
+            </div>
+            <img src="images/assets/pizza-4.jpg">
+          </div>
+          
+          <div class="float">
+            <div class="icons">
+              <i class="fas fa-heart"></i>
+              <i class="fas fa-share-alt"></i>
+            </div>
+            <img src="images/assets/pizza-5.jpg">
+          </div>
+          
+          <div class="float">
+            <div class="icons">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+            </div>
+            <img src="images/assets/pizza-6.jpg">
+          </div>
+        </div>
+
+        <div class="gallery-flex">
+          <div class="float">
+            <div class="icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-share-alt"></i>
+            </div>
+            <img src="images/assets/pizza-7.jpg">
+          </div>
+
+          <div class="float">
+            <div class="icons">
+              <i class="fas fa-heart"></i>
+              <i class="fas fa-share-alt"></i>
+            </div>
+            <img src="images/assets/pizza-8.jpg">
+          </div>
+          <div class="float">
+            <div class="icons">
+              <i class="fas fa-heart"></i>
+              <i class="fas fa-share-alt"></i>
+            </div>
+            <img src="images/assets/pizza-9.jpg">
+          </div>
+        </div>
+      </div>
+      <footer>
+        <a href="#instagram"><p class="footer">Viev more on Instagram</p></a>
+      </footer>
   </script>
+
   <script id="template-cart-product" type="text/x-handlebars-template">
     <li>
       <div class="widget-amount"> <!-- widget-amount -->
@@ -310,7 +360,7 @@
       </form>
     </div>
   </script>
-  <!--<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>-->
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="vendor/range-slider.min.js" type="module"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

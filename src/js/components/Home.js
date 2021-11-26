@@ -1,11 +1,11 @@
-import { templates} from '../settings.js';
+import { templates, select} from '../settings.js';
 
 class Home {
   constructor(element){
     const thisHome = this;
 
     thisHome.render(element);
-    //thisHome.Flickity();
+    thisHome.Flickity();
 
   }
 
@@ -19,17 +19,17 @@ class Home {
     thisHome.dom.wrapper= element;
     thisHome.dom.wrapper.innerHTML = generatedHTML;
   }
-  
-  // Flickity(){
-  //const element = document.querySelector(select.widgets.carousel);
+  Flickity() {
 
-  //new Flickity (element, {
-  // options
-  //cellAlign: 'left',
-  //contain: true
-  // });
-  //}
- 
+    const elem = document.querySelector('.main-carousel');
+    const flkty = new Flickity( elem, {
+      // options
+      cellAlign: 'left',
+      contain: true
+    });
+
+  }
+  
 }
 
 export default Home; 
