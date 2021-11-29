@@ -1,22 +1,21 @@
-.home-wrapper {
+.home-container {
   margin: ($base-size * 3.5) auto;
   padding: ($base-size * 6) ($base-size * 4);
   background: $color-light;
   border-bottom: 1px solid lighten($color-dark, 70%);
   border-radius: $radius;
+  max-width: 700px;
+
 }
 
 .home-widget {
   transform: opacity 500ms;
   font-family: $font-header;
+  max-width: 100%;
 
   &.loading {
     opacity: 0.25;
   }
-}
-
-.container{
-  max-width: 700px;
 }
 
 .start {
@@ -88,23 +87,45 @@ img {
 }
 
 .carousel {
-  width: 100%;
-  display: inline-block;
+  width: 100%;  
+  
 }
 
 .carousel-cell {
   display: flex;
+  padding-top: 10%;
+  scroll-padding-left: 10%;
+  max-width: 100%;
+  margin-inline-start: -5%;
+
 }
 
+
 .carousel-img {
-  width: 193px;
-  height: 193px;
+  width: 200px;
+  height: 200px;
+  
+  
 }
 
 .comment-text {
   text-align: left;
   font-family: $font-text;
   padding: 10px 30px 10px 0;
+  width: max-content;
+  margin-left: 5%;
+}
+
+.h6 {
+  font-family: italic;
+}
+
+.flickity-button {
+  visibility: hidden;
+}
+
+.dot {
+  visibility: hidden;
 }
 
 .gallery {
@@ -115,45 +136,58 @@ img {
   .gallery-flex {
     display: flex;
   }
+}
+
+.float {
+  justify-content: center;
+  display: block;
+  position: relative;
+
+  &:hover {
+    opacity: 0.7;
+    filter: brightness(70%);
+    transition: $transition;
+  }
+
+  .image {
+    width: 193px;
+    height: 193px;
+    object-fit: cover;
+    margin: 5px;
+    //visibility: hidden;
+  }
 
   .icons {
     position: absolute;
     font-size: 30px;
     opacity: 0;
     margin: 66px;
+    display: block;
+    
+    &:hover{
+      opacity: 1;
+    }
 
+  }
+}
+
+.icon{
+  //color: #fff;
+  font-size: 30px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  
+  &:hover{
     .fa-share-alt{
       color: $color-light;
     }
 
     .fa-heart{
-      color: #dd2f14; 
-    }
-  }
-
-  img {
-    width: 193px;
-    height: 193px;
-    object-fit: cover;
-    margin: 5px;
-  }
-}
-
-.float{
-  justify-content: center;
-  display: block;
-
-  &:hover {
-    opacity: 0.7;
-    filter: brightness(70%);
-    transition: $transition;
-
-    .fas {
-      opacity: 0.7;
-
-      &:hover {
-        opacity: 1.5;
-      }
+      color: #E55039; 
     }
   }
 }
