@@ -1,1 +1,1 @@
-https://git.heroku.com/sp-myfirstapp.git
+https://sp-myfirstapp.herokuapp.com/
