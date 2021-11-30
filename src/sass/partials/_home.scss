@@ -143,12 +143,12 @@ img {
   font-family: italic;
 }
 
-.flickity-button {
-  visibility: hidden;
-}
-
 .dot {
-  visibility: hidden;
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  background: transparent;
+  border: 2px solid white;
 }
 
 .gallery {
