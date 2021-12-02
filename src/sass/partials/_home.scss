@@ -179,6 +179,7 @@ img {
       bottom: 26%;
       left: 15%;
       font-size: 25px;
+      z-index:20;
           
       li{
         color: $color-light;
@@ -192,7 +193,8 @@ img {
       &:hover{
         .fa-heart {
           visibility: visible;
-          color: $color-main;
+          color: $color-light;
+          
         }
       }
     }
@@ -202,6 +204,12 @@ img {
         .fa-share-alt {
           visibility: visible;
           color: $color-light;
+          
+        }
+      }
+      .icons{
+        &:hover .fa-heart {
+          color:$color-main;
         }
       }
     }
@@ -213,9 +221,12 @@ img {
         opacity: 0.3;
         transition: all 0.3s;
       }
+    
     }
   }
 }  
+
+
 
 
 footer {
